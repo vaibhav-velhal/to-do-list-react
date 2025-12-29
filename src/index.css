@@ -1,0 +1,25 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.container-box {
+    font-size: 0.9rem;
+    width: clamp(250px, 80vw, 350px);
+    background-color: #FAFAFA;
+    min-height: 350px;
+}
+
+li .btn {
+    padding: 0px;
+}
+
+.container-box li {
+    list-style-type: none;
+}
+
+@media (max-width: 767px) {
+    .container-box {
+        font-size: 0.8rem;
+    }
+}
