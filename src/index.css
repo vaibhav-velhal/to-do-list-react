@@ -17,9 +17,3 @@ li .btn {
 .container-box li {
     list-style-type: none;
 }
-
-@media (max-width: 767px) {
-    .container-box {
-        font-size: 0.8rem;
-    }
-}
