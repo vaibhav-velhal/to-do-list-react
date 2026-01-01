@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {LuList} from 'react-icons/lu';
 import {FaArrowUp, FaArrowDown} from 'react-icons/fa';
 import {MdDelete} from 'react-icons/md';
@@ -7,6 +7,19 @@ function ToDoList(){
 
     const [tasks, setTasks] = useState([]);
     const [newTask, setNewTask] = useState("");
+
+    //Load tasks from localStorage
+    useEffect(() => {
+        const savedTasks = JSON.parse(localStorage.getItem("tasks"));
+        if (savedTasks) {
+            setTasks(savedTasks);
+        }
+    }, []);
+
+    //Save tasks to localStorage
+    useEffect(() => {
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }, [tasks]);
 
     function handleInputChange(event) {
         setNewTask(event.target.value);
@@ -59,8 +72,8 @@ function ToDoList(){
             <ol className='p-0 m-0'>
                 {tasks.map((task, index)=>
                 <li className='d-flex mx-2 mb-2 p-1 bg-primary bg-opacity-25 border border-secondary border-opacity-50 rounded' key={index}>
-                    <input type='checkbox' id='task' className='form-check-input me-1' />
-                    <div htmlFor="task" className="text-start fw-semibold">{task}</div>
+                    <input type='checkbox' className='form-check-input me-1' />
+                    <div className="text-start fw-semibold">{task}</div>
                     <div className='d-flex ms-auto mb-auto border border-secondary border-opacity-25 rounded px-1'>
                         <button className="btn text-danger"
                             onClick={()=>deleteTask(index)}><MdDelete className='mb-1' /></button>
