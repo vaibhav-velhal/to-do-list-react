@@ -68,7 +68,7 @@ function ToDoList() {
     }
 
     return (
-        <div className='container-box text-center my-5 p-3 px-4 mx-auto border border-secondary rounded'>
+        <div className='container-box text-center my-5 p-3 -4 mx-auto border border-secondary rounded'>
             <h3 className='mb-1'>
                 <LuList className='mb-1 me-1' />
                 To Do List
@@ -76,7 +76,7 @@ function ToDoList() {
 
             <hr className='m-0 mb-3' />
 
-            <div className="input-group mb-2">
+            <div className="input-group px-2 mb-2">
                 <input
                     className='form-control'
                     type="text"
@@ -92,7 +92,7 @@ function ToDoList() {
             <ol className='p-0 m-0'>
                 {tasks.map((task, index) => (
                     <li
-                        className='d-flex mx-2 mb-2 p-1 bg-primary bg-opacity-25 border border-secondary border-opacity-50 rounded'
+                        className='d-flex mb-2 p-1 bg-primary bg-opacity-25 border border-secondary border-opacity-50 rounded'
                         key={index}
                     >
                         {/* Checkbox */}
